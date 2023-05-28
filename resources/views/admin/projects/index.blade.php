@@ -27,8 +27,12 @@
                 <td>{{$item->slug}}</td>
                 <td>{{$item->type?->name}}</td>
                 <td>
-                    @foreach($project->technologies as $item)
+                    {{-- @foreach($project->technologies as $item)
                         <span class="mx-1">{{$technology->name}}</span>
+                    @endforeach --}}
+
+                    @foreach($item->technologies as $technology)
+                        <span class="badge rounded-pill mx-1" style="background-color: {{$technology->color}}">{{$technology->name}}</span>
                     @endforeach
                 </td>
 
