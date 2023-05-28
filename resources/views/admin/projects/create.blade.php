@@ -14,7 +14,7 @@
           <form action="{{ route('admin.projects.store') }}" method="POST" class="text-dark" enctype="multipart/form-data">
             @csrf
 
-            <div class="mb-3">
+            <div class="mb-3 text-white">
               <label for="title" class="form-label">Title</label>
               <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror" value="{{old('title')}}" required>
             
@@ -25,7 +25,7 @@
               @enderror
             </div>
 
-            <div class="mb-3">
+            <div class="mb-3 text-white">
               <label for="type_id" class="form-label">Project Type</label>
 
               <select name="type_id" id="type_id" class="form-select @error('type_id') is-invalid @enderror">
@@ -70,7 +70,7 @@
         
             </div> --}}
 
-            <div class="mb-3">
+            <div class="mb-3 text-white">
               <label for="content" class="form-label">Project Summary</label>
               <textarea name="content" id="content" class="form-control @error('content') is-invalid @enderror" required>{{old('content')}}</textarea>
             

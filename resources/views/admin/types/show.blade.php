@@ -58,12 +58,36 @@
 <div class="d-flex justify-content-around">
     <a href="{{route('admin.types.edit', $type)}}" class="btn btn-secondary">Edit Type</a>
 
-    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
-      Elimina
-    </button>
+    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">Delete</button>
     
   </div>
-
-
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="deleteModalLabel">Delete Type</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          Are you sure you want to DELETE this type: {{$type->name}}?
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          
+          <form action="{{route('admin.types.destroy', $type)}}" method="POST">
+            @csrf
+            @method('DELETE')
+            <button type="submit" class="btn btn-danger">DELETE</button>
+          </form>
+  
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
 @endsection
