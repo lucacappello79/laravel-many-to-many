@@ -15,6 +15,7 @@
                 <th>Content</th>
                 <th>Slug</th>
                 <th>Type</th>
+                <th>Technologies</th>
                 <th>Console</th>
             </tr>
         </thead>
@@ -25,6 +26,11 @@
                 <td>{{$item->content}}</td>
                 <td>{{$item->slug}}</td>
                 <td>{{$item->type?->name}}</td>
+                <td>
+                    @foreach($project->technologies as $item)
+                        <span class="mx-1">{{$technology->name}}</span>
+                    @endforeach
+                </td>
 
                 <td class="line-height">
                     <div class="d-flex gap-2">

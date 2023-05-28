@@ -4,12 +4,6 @@
 
 {{-- <h2 class="text-center">Language used: {{$project->type->name ?? 'undefined'}}</h2> --}}
 
-{{-- <div class="d-flex py-3">
-  @foreach($project->technologies as $item)
-    <span class="badge rounded-pill mx-1" style="background-color: {{$item->color}}">{{$item->name}}</span>
-  @endforeach
-</div> --}}
-
 
 {{-- <div class="container">
   <img src="{{asset ('storage/' . $project->cover_image) }}" alt="fnf">
@@ -20,6 +14,12 @@
     <h1 class="text-white">Projects List</h1>
     {{-- <h2 class="text-white">Type: {{$project->type ? $project->type->name : 'Undefined Type'}}</h2> --}}
     <h2 class="text-white">Type: {{$project->type->name ?? 'Undefined Type'}}</h2>
+
+    <div class="d-flex py-3">
+      @foreach($project->technologies as $item)
+        <span class="badge rounded-pill mx-1" style="background-color: {{$item->color}}">{{$item->name}}</span>
+      @endforeach
+    </div>
 
 
     <div class="col-6">

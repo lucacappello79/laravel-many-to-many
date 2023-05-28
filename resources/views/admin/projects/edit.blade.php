@@ -59,17 +59,19 @@
             {{-- fine test --}}
 
 
-            {{-- <div class="my-3 form-group">
+            <div class="my-3 form-group text-white">
               <h2>Technologies</h2>
         
               @foreach($technologies as $item)
               <div class="form-check">
-                <input type="checkbox" id="technology-{{$item->id}}" name="technologies[]" value="{{$item->id}}">
+                <input type="checkbox" id="technology-{{$item->id}}" name="technologies[]" value="{{$item->id}}" @checked($project->technologies->contains($item))>
                 <label for="technology-{{$item->id}}">{{$item->name}}</label>
               </div>
               @endforeach
         
-            </div> --}}
+            </div>
+
+
 
             <div class="mb-3 text-white">
               <label for="content" class="form-label">Project Summary</label>
