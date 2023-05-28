@@ -5,6 +5,9 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+
+use illuminate\Support\Str;
 
 class TypeController extends Controller
 {
@@ -26,7 +29,7 @@ class TypeController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.types.create');
     }
 
     /**
@@ -37,7 +40,20 @@ class TypeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+        $formData = $request->all();
+
+        $this->validation($formData);
+
+        $formData['slug'] = Str::slug($formData['name'], '-');
+
+        $newType = new Type();
+
+        $newType->fill($formData);
+
+        $newType->save();
+
+        return redirect()->route('admin.types.show', $newType);
     }
 
     /**
@@ -59,7 +75,7 @@ class TypeController extends Controller
      */
     public function edit(Type $type)
     {
-        //
+        return view('admin.types.edit', compact('type'));
     }
 
     /**
@@ -83,5 +99,25 @@ class TypeController extends Controller
     public function destroy(Type $type)
     {
         //
+    }
+
+    private function validation($formData)
+    {
+
+        //$formData = $request->all();
+
+        $validator = Validator::make($formData, [
+
+            'name' => 'max:100|required|unique:App\Models\Type,name',
+            'description' => 'required',
+        ], [
+
+            'name.max' => 'Il nome non deve superare :max caratteri',
+            'name.required' => 'Il nome deve essere inserito',
+            'name.unique' => 'Nome già usato',
+            'description.required' => 'La descrizione deve essere inserita',
+        ])->validate();
+
+        return $validator;
     }
 }

@@ -20,7 +20,7 @@
             <th>Title</th>
             {{-- <th>Content</th> --}}
             <th>Slug</th>
-            {{-- <th>Console</th> --}}
+            <th>Console</th>
         </tr>
     </thead>
 
@@ -54,6 +54,16 @@
 @else
     <strong>No project of this type</strong>
 @endif
+
+<div class="d-flex justify-content-around">
+    <a href="{{route('admin.types.edit', $type)}}" class="btn btn-secondary">Edit Type</a>
+
+    <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal">
+      Elimina
+    </button>
+    
+  </div>
+
 
 </div>
 @endsection
