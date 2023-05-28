@@ -25,12 +25,12 @@
               @enderror
             </div>
 
-            {{-- <div class="mb-3">
-              <label for="type_id" class="form-label">Type_id</label>
+            <div class="mb-3">
+              <label for="type_id" class="form-label">Project Type</label>
 
-              <select id="type_id" name="type_id" class="form-select @error('type_id') is-invalid @enderror">
+              <select name="type_id" id="type_id" class="form-select @error('type_id') is-invalid @enderror">
+                
                 <option value="">Undefined</option>
-
                 @foreach ($types as $item)
                   <option value="{{$item->id}}" {{$item->id == old('type_id') ? 'selected' : ''}}>{{$item->name}}</option>   
                 @endforeach
@@ -42,7 +42,7 @@
                 {{$message}}
               </div>
               @enderror
-            </div> --}}
+            </div>
 
             {{-- test file --}}
 

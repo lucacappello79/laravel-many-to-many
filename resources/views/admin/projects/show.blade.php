@@ -17,6 +17,11 @@
 
 <main class="container-fluid text-dark py-4">
   <div class="row justify-content-center">
+    <h1 class="text-white">Projects List</h1>
+    {{-- <h2 class="text-white">Type: {{$project->type ? $project->type->name : 'Undefined Type'}}</h2> --}}
+    <h2 class="text-white">Type: {{$project->type->name ?? 'Undefined Type'}}</h2>
+
+
     <div class="col-6">
       <div class="card">
 

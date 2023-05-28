@@ -14,6 +14,7 @@
                 <th>Title</th>
                 <th>Content</th>
                 <th>Slug</th>
+                <th>Type</th>
                 <th>Console</th>
             </tr>
         </thead>
@@ -23,6 +24,7 @@
                 <td>{{$item->title}}</td>
                 <td>{{$item->content}}</td>
                 <td>{{$item->slug}}</td>
+                <td>{{$item->type?->name}}</td>
 
                 <td class="line-height">
                     <div class="d-flex gap-2">

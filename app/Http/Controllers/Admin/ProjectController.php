@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Project;
+use App\Models\Type;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
@@ -29,7 +30,10 @@ class ProjectController extends Controller
      */
     public function create()
     {
-        return view('admin.projects.create');
+        $types = Type::all();
+        // $technologies = Technology::all();
+        // return view('admin.projects.create', compact('types', 'technologies'));
+        return view('admin.projects.create', compact('types'));
     }
 
     /**
@@ -87,7 +91,11 @@ class ProjectController extends Controller
      */
     public function edit(Project $project)
     {
-        return view('admin.projects.edit', compact('project'));
+
+        $types = Type::all();
+        // $technologies = Technology::all();
+        // return view('admin.projects.edit', compact('project', 'types', 'technologies'));
+        return view('admin.projects.edit', compact('project', 'types'));
     }
 
     /**
@@ -159,7 +167,7 @@ class ProjectController extends Controller
 
             'title' => 'required|max:100|min:6',
             'content' => 'required|min:40',
-            // 'type_id' => 'nullable|exists:types,id',
+            'type_id' => 'nullable|exists:types,id',
             // 'cover_image' => 'nullable|image|max:5000',
 
         ], [
@@ -169,8 +177,8 @@ class ProjectController extends Controller
             'title.min' => 'Il titolo deve avere un minimo di 6 caratteri',
             'content.required' => "E' richiesta una descrizione",
             'content.max' => 'La descrizione deve avere un minimo di :min caratteri',
+            'type_id.exists' => 'La tipologia deve essere inserita',
 
-            // 'type_id.exists' => 'La tipologia deve venire inserita',
             // 'cover_image.image' => 'Inserire un file immagine',
             // 'cover_image.max' => 'File img troppo grande',
 

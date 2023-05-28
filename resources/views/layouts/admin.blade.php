@@ -123,6 +123,17 @@ $routeName = Route::currentRouteName();
                     </div>
                 </div>
 
+                <div class="card {{ routeNameContains('types.') ? 'border-warning' : ''}}">
+                    <div class="card-header {{ routeNameContains('types.') ? 'text-warning' : ''}}">
+                        Types
+                    </div>
+                    <div class="list-group list-group-flush">
+                        <a href="{{route('admin.types.index')}}" class="list-group-item list-group-item-action {{ routeNameContains('types.index') ? 'active' : ''}}">Index</a>
+                        <a href="{{route('admin.types.create')}}" class="list-group-item list-group-item-action {{ routeNameContains('types.create') ? 'active' : ''}}">Add Type</a>
+
+                    </div>
+                </div>
+
             </aside>
             <main class="container">
                 @yield('content')

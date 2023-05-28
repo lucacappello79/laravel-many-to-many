@@ -15,7 +15,7 @@
             @csrf
             @method('PUT')
 
-            <div class="mb-3">
+            <div class="mb-3 text-white">
               <label for="title" class="form-label">Title</label>
               <input type="text" name="title" id="title" class="form-control @error('title') is-invalid @enderror" value="{{old('title') ?? $project->title}}" required>
             
@@ -26,14 +26,14 @@
               @enderror
             </div>
 
-            {{-- <div class="mb-3">
-              <label for="type_id" class="form-label">Type_id</label>
-
-              <select id="type_id" name="type_id" class="form-select @error('type_id') is-invalid @enderror">
+            <div class="mb-3 text-white">
+              <label for="type_id" class="form-label">Project Type</label>
+              <select name="type_id" id="type_id" class="form-select @error('type_id') is-invalid @enderror">
+                
                 <option value="">Undefined</option>
 
                 @foreach ($types as $item)
-                  <option value="{{$item->id}}" {{$item->id == old('type_id') ? 'selected' : ''}}>{{$item->name}}</option>   
+                  <option value="{{$item->id}}" {{$item->id == old('type_id', $project->type_id) ? 'selected' : ''}}>{{$item->name}}</option>   
                 @endforeach
 
               </select>
@@ -43,7 +43,7 @@
                 {{$message}}
               </div>
               @enderror
-            </div> --}}
+            </div>
 
             {{-- test file --}}
 
@@ -71,7 +71,7 @@
         
             </div> --}}
 
-            <div class="mb-3">
+            <div class="mb-3 text-white">
               <label for="content" class="form-label">Project Summary</label>
               <textarea name="content" id="content" class="form-control @error('content') is-invalid @enderror" required>{{old('content') ?? $project->content}}</textarea>
             
