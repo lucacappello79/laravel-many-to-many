@@ -48,16 +48,17 @@ class ProjectController extends Controller
         $formData = $request->all();
 
         $this->validation($request);
+        //$this->validation($formData);
 
         $newProject = new Project();
 
-        // test immagine
-        // if ($request->hasFile('cover_image')) {
+        //test immagine
+        if ($request->hasFile('cover_image')) {
 
-        //     $path = Storage::put('post_images', $request->cover_image);
+            $path = Storage::put('project_images', $request->cover_image);
 
-        //     $formData['cover_image'] = $path;
-        // }
+            $formData['cover_image'] = $path;
+        }
         //fine test
 
         $newProject->fill($formData);
@@ -111,8 +112,6 @@ class ProjectController extends Controller
         $this->validation($request);
 
         $project->slug = Str::slug($formData['title'], '-');
-
-
         // test img
 
         if ($request->hasFile('cover_image')) {

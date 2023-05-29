@@ -2,12 +2,11 @@
 
 @section('content')
 
-{{-- <h2 class="text-center">Language used: {{$project->type->name ?? 'undefined'}}</h2> --}}
-
-
-{{-- <div class="container">
-  <img src="{{asset ('storage/' . $project->cover_image) }}" alt="fnf">
-</div> --}}
+<div class="container">
+  <div class="text-center">
+    <img src="{{asset ('storage/' . $project->cover_image) }}" alt="fnf" class="w-50">
+  </div>
+</div>
 
 <main class="container-fluid text-dark py-4">
   <div class="row justify-content-center">
