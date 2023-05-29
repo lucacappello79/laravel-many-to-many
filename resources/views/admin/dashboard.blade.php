@@ -1,7 +1,7 @@
 @extends('layouts/admin')
 
 @section('content')
-  <h1 class="m-3">Admin Console</h1>
+  <h1 class="m-3">Admin Console, LMTM</h1>
 
   <hr>
 
