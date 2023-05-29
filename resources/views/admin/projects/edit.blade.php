@@ -47,14 +47,13 @@
 
             {{-- test file --}}
 
-            {{-- <div class="my-4">
+            <div class="my-4">
               <label for="cover_image">Project Thumb</label>
               <input type="file" id="cover_image" name="cover_image" class="form-control @error('cover_image') is-invalid @enderror">
               @error('cover_image')
-                  <div class="invalid-feedback">{{message}}</div>
+                  <div class="invalid-feedback">{{$message}}</div>
               @enderror
-            </div> --}}
-
+            </div>
 
             {{-- fine test --}}
 
