@@ -7,6 +7,7 @@ use App\Models\Project;
 use App\Models\Technology;
 use App\Models\Type;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Validator;
 
 use Illuminate\Support\Str;
@@ -114,17 +115,17 @@ class ProjectController extends Controller
 
         // test img
 
-        // if ($request->hasFile('cover_image')) {
+        if ($request->hasFile('cover_image')) {
 
-        //     if ($project->cover_image) {
+            if ($project->cover_image) {
 
-        //         Storage::delete($project->cover_image);
-        //     }
+                Storage::delete($project->cover_image);
+            }
 
-        //     $path = Storage::put('project_images', $request->cover_image);
+            $path = Storage::put('project_images', $request->cover_image);
 
-        //     $formData['cover_image'] = $path;
-        // }
+            $formData['cover_image'] = $path;
+        }
 
 
         // fine test
@@ -170,7 +171,7 @@ class ProjectController extends Controller
             'type_id' => 'nullable|exists:types,id',
 
             'technologies' => 'exists:technologies,id',
-            // 'cover_image' => 'nullable|image|max:5000',
+            'cover_image' => 'nullable|image|max:5000',
 
         ], [
 
@@ -181,9 +182,8 @@ class ProjectController extends Controller
             'content.max' => 'La descrizione deve avere un minimo di :min caratteri',
             'type_id.exists' => 'La tipologia deve essere inserita',
             'technologies.exists' => 'La tecnologia usata deve essere inserita',
-
-            // 'cover_image.image' => 'Inserire un file immagine',
-            // 'cover_image.max' => 'File img troppo grande',
+            'cover_image.image' => 'Inserire un file immagine',
+            'cover_image.max' => 'File img troppo grande',
 
         ])->validate();
 
