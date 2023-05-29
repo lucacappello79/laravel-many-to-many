@@ -22,9 +22,15 @@
         <tbody>
             @foreach($projects as $item)
             <tr>
-                <td>{{$item->title}}</td>
-                <td>{{$item->content}}</td>
-                <td>{{$item->slug}}</td>
+                {{-- <td>{{$item->title}}</td> --}}
+                <td>{{ substr($item->title,0,40)."..."}}</td>
+
+                {{-- <td>{{$item->content}}</td> --}}
+                <td>{{ substr($item->content,0,40)."..."}}</td>
+
+                {{-- <td>{{$item->slug}}</td> --}}
+                <td>{{ substr($item->slug,0,40)."..."}}</td>
+
                 <td>{{$item->type?->name}}</td>
                 <td>
                     {{-- @foreach($project->technologies as $item)
