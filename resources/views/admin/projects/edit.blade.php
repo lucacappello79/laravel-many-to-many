@@ -111,11 +111,6 @@
             
             </div> --}}
 
-            {{-- <div class="d-grid">
-              <button class="btn btn-primary mt-3" type="submit">Add Project</button>
-              <a href="{{ route('admin.projects.index')}}" class="btn btn-success">Back to List</a>
-            </div> --}}
-
             <div class="d-flex justify-content-between align-items-center" style="gap: 1rem; max-width: 300px; margin: auto;">
               <button type="submit" class="btn btn-primary">Edit Project</button>
               <button class="btn btn-success" onclick="location.href='{{ route('admin.projects.index')}}'">Back to List</button>
