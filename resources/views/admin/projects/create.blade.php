@@ -63,10 +63,16 @@
         
               @foreach($technologies as $item)
               <div class="form-check">
-                <input type="checkbox" name="technologies[]" id="technology-{{$item->id}}"  value="{{$item->id}}">
+                <input type="checkbox" name="technologies[]" id="technology-{{$item->id}}"  value="{{$item->id}}" @checked(in_array($item->id, old('technologies', [])))>
                 <label for="technology-{{$item->id}}">{{$item->name}}</label>
               </div>
               @endforeach
+
+              @error('technologies')
+              <div class="text-danger">
+                {{$message}}
+              </div>
+              @enderror
         
             </div>
 

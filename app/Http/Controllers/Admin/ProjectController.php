@@ -168,6 +168,8 @@ class ProjectController extends Controller
             'title' => 'required|max:100|min:6',
             'content' => 'required|min:40',
             'type_id' => 'nullable|exists:types,id',
+
+            'technologies' => 'exists:technologies,id',
             // 'cover_image' => 'nullable|image|max:5000',
 
         ], [
@@ -178,6 +180,7 @@ class ProjectController extends Controller
             'content.required' => "E' richiesta una descrizione",
             'content.max' => 'La descrizione deve avere un minimo di :min caratteri',
             'type_id.exists' => 'La tipologia deve essere inserita',
+            'technologies.exists' => 'La tecnologia usata deve essere inserita',
 
             // 'cover_image.image' => 'Inserire un file immagine',
             // 'cover_image.max' => 'File img troppo grande',
